@@ -72,9 +72,22 @@ int main() {
         }
     }
 
+    // adding in some repeating numbers
+    array[21] = 110.13;
+    array[54] = 110.13;
+    array[9] = 110.13;
+    array[44] = 110.13;
+    
+    array[4] = 39.971;
+    array[14] = 39.971;
+    array[97] = 39.971;
+    array[34] = 39.971;
+    array[87] = 39.971;
+    array[90] = 39.971;
+
     int userCommand;
     while(userCommand != 7) {
-        printf("Welcome to the Data Explorer: Building Essential Data Analysis Tools in C!\n");
+        printf("\n\nWelcome to the Data Explorer: Building Essential Data Analysis Tools in C!\n");
         printf("Please choose an option by entering the corresponding number:\n");
 
         // Commands
@@ -87,12 +100,43 @@ int main() {
         printf("7: Exit\n");
 
         printf("Enter your command: ");
-        scanf("%d\n", &userCommand);
-
+        scanf("%d", &userCommand);
+        
         // sorting through option that user chooses
-        if(userCommand == 6) {
+        if (userCommand == 1){
+            printf("\nThe minimum value is: %g", findMin(array, 150));
+        }
+        else if (userCommand == 2){
+            printf("\nThe maximum value is: %g", findMax(array, 150));
+        }
+        else if (userCommand == 3){
+            printf("\nThe average value is: %g", calculateAverage(array, 150));
+        }
+        else if (userCommand == 4){
+            float findNumber;
+            printf("Enter the number to find: ");
+            scanf("%g", &findNumber);
+
+            int numIndex = findIndexOf(array, 150, findNumber);
+            if( numIndex == -1){
+                printf("\nThe number %g is not found in the array.", findNumber);
+            } else {
+                printf("\nThe number %g is found in the array at index %g", findNumber, numIndex);
+            }
+        }
+        else if (userCommand == 5){
+            float findNumber;
+            printf("Enter the number to find: ");
+            scanf("%g", &findNumber);
+
+            int numCount = countOccurences(array, 150, findNumber);
+            printf("\nThe number %g occurs %d times in the array.", findNumber, numCount);
+        }
+        else if (userCommand == 6){
+            printf("\nFirst 100 elements of the array:\n");
             printFirst100(array);
-            printf("array printed!");
         }
     }
+    printf("\nGoodbye!");
+    return 0;
 }
