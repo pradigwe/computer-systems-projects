@@ -85,7 +85,7 @@ int main() {
     array[87] = 39.971;
     array[90] = 39.971;
 
-    int userCommand;
+    int userCommand = 0;
     while(userCommand != 7) {
         printf("\n\nWelcome to the Data Explorer: Building Essential Data Analysis Tools in C!\n");
         printf("Please choose an option by entering the corresponding number:\n");
@@ -115,19 +115,19 @@ int main() {
         else if (userCommand == 4){
             float findNumber;
             printf("Enter the number to find: ");
-            scanf("%g", &findNumber);
+            scanf("%f", &findNumber);
 
             int numIndex = findIndexOf(array, 150, findNumber);
             if( numIndex == -1){
                 printf("\nThe number %g is not found in the array.", findNumber);
             } else {
-                printf("\nThe number %g is found in the array at index %g", findNumber, numIndex);
+                printf("\nThe number %g is found in the array at index %d", findNumber, numIndex);
             }
         }
         else if (userCommand == 5){
             float findNumber;
             printf("Enter the number to find: ");
-            scanf("%g", &findNumber);
+            scanf("%f", &findNumber);
 
             int numCount = countOccurences(array, 150, findNumber);
             printf("\nThe number %g occurs %d times in the array.", findNumber, numCount);
@@ -137,6 +137,7 @@ int main() {
             printFirst100(array);
         }
     }
+    // Exits loop when user enters 7, then prints goodbye message
     printf("\nGoodbye!");
     return 0;
 }
