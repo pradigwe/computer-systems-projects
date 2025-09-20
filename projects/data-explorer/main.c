@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // Finds the minimum value in the array
 float findMin(float arr[], int size) {
@@ -62,28 +64,14 @@ void printFirst100(float arr[]){
 
 int main() {
     // Creating default array;
-    float array[150];
-    array[0] = 2.76;
-    for(int i=1; i<150; i++){
-        if(array[i-1] >= 100){
-            array[i] = (array[i-1] * 0.1) + 3.4;
-        } else {
-            array[i] = array[i-1] * 1.4 + 14.01;
-        }
-    }
+    float array[1000];
+    int size = 1000;
 
-    // adding in some repeating numbers
-    array[21] = 110.13;
-    array[54] = 110.13;
-    array[9] = 110.13;
-    array[44] = 110.13;
-    
-    array[4] = 39.971;
-    array[14] = 39.971;
-    array[97] = 39.971;
-    array[34] = 39.971;
-    array[87] = 39.971;
-    array[90] = 39.971;
+    // Initialize the array with random values between 0 and 100
+    srand((unsigned int)time(NULL));
+    for (int i = 0; i < size; i++) {
+        array[i] = ((float)rand()/(float)(RAND_MAX)) * 100.0; // Random float values from 0 to 100
+    }
 
     int userCommand = 0;
     while(userCommand != 7) {
@@ -104,20 +92,20 @@ int main() {
         
         // sorting through option that user chooses
         if (userCommand == 1){
-            printf("\nThe minimum value is: %g", findMin(array, 150));
+            printf("\nThe minimum value is: %g", findMin(array, size));
         }
         else if (userCommand == 2){
-            printf("\nThe maximum value is: %g", findMax(array, 150));
+            printf("\nThe maximum value is: %g", findMax(array, size));
         }
         else if (userCommand == 3){
-            printf("\nThe average value is: %g", calculateAverage(array, 150));
+            printf("\nThe average value is: %g", calculateAverage(array, size));
         }
         else if (userCommand == 4){
             float findNumber;
             printf("Enter the number to find: ");
             scanf("%f", &findNumber);
 
-            int numIndex = findIndexOf(array, 150, findNumber);
+            int numIndex = findIndexOf(array, size, findNumber);
             if( numIndex == -1){
                 printf("\nThe number %g is not found in the array.", findNumber);
             } else {
@@ -129,7 +117,7 @@ int main() {
             printf("Enter the number to find: ");
             scanf("%f", &findNumber);
 
-            int numCount = countOccurences(array, 150, findNumber);
+            int numCount = countOccurences(array, size, findNumber);
             printf("\nThe number %g occurs %d times in the array.", findNumber, numCount);
         }
         else if (userCommand == 6){
