@@ -111,15 +111,15 @@ int main()
         // sorting through option that user chooses
         if (userCommand == 1)
         {
-            printf("\nThe minimum value is: %g", findMin(array, size));
+            printf("\nThe minimum value is: %f", findMin(array, size));
         }
         else if (userCommand == 2)
         {
-            printf("\nThe maximum value is: %g", findMax(array, size));
+            printf("\nThe maximum value is: %f", findMax(array, size));
         }
         else if (userCommand == 3)
         {
-            printf("\nThe average value is: %g", calculateAverage(array, size));
+            printf("\nThe average value is: %f", calculateAverage(array, size));
         }
         else if (userCommand == 4)
         {
@@ -130,11 +130,11 @@ int main()
             int numIndex = findIndexOf(array, size, findNumber);
             if (numIndex == -1)
             {
-                printf("\nThe number %g is not found in the array.", findNumber);
+                printf("\nThe number %f is not found in the array.", findNumber);
             }
             else
             {
-                printf("\nThe number %g is found in the array at index %d", findNumber, numIndex);
+                printf("\nThe number %f is found in the array at index %d", findNumber, numIndex);
             }
         }
         else if (userCommand == 5)
@@ -144,7 +144,7 @@ int main()
             scanf("%f", &findNumber);
 
             int numCount = countOccurences(array, size, findNumber);
-            printf("\nThe number %g occurs %d times in the array.", findNumber, numCount);
+            printf("\nThe number %f occurs %d times in the array.", findNumber, numCount);
         }
         else if (userCommand == 6)
         {
